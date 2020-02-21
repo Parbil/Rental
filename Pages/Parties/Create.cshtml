@@ -1,0 +1,79 @@
+﻿@page
+@model Rental.Pages.Parties.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Party</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Party.Code" class="control-label"></label>
+                <input asp-for="Party.Code" class="form-control" />
+                <span asp-validation-for="Party.Code" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Party.Name" class="control-label"></label>
+                <input asp-for="Party.Name" class="form-control" />
+                <span asp-validation-for="Party.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Party.Address" class="control-label"></label>
+                <input asp-for="Party.Address" class="form-control" />
+                <span asp-validation-for="Party.Address" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Party.IsEmployee" /> @Html.DisplayNameFor(model => model.Party.IsEmployee)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Party.IsUser" /> @Html.DisplayNameFor(model => model.Party.IsUser)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Party.IsSupplier" /> @Html.DisplayNameFor(model => model.Party.IsSupplier)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Party.IsCustomer" /> @Html.DisplayNameFor(model => model.Party.IsCustomer)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="Party.ContactNo" class="control-label"></label>
+                <input asp-for="Party.ContactNo" class="form-control" />
+                <span asp-validation-for="Party.ContactNo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Party.ContactPerson" class="control-label"></label>
+                <input asp-for="Party.ContactPerson" class="form-control" />
+                <span asp-validation-for="Party.ContactPerson" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Party.Email" class="control-label"></label>
+                <input asp-for="Party.Email" class="form-control" />
+                <span asp-validation-for="Party.Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
