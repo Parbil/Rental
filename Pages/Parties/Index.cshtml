@@ -5,12 +5,36 @@
     ViewData["Title"] = "Index";
 }
 
+@section Styles {
+    <!-- DataTables -->
+    <link rel="stylesheet" href="~/lib/dataTables/dataTables.bootstrap4.min.css">
+}
+
+@section Scripts {
+    <!-- DataTables -->
+    <script src="~/lib/dataTables/jquery.dataTables.min.js"></script>
+    <script src="~/lib/dataTables/dataTables.bootstrap4.min.js"></script>
+
+    <!-- page script -->
+    <script>
+        $(function () {
+            $('#MainGrid').DataTable({
+                'paging': true,
+                'lengthChange': true,
+                'searching': true,
+                'ordering': true,
+                'info': true,
+                'autoWidth': true
+            })
+        })
+    </script>
+}
 <h1>Index</h1>
 
 <p>
-    <a asp-page="Create">Create New</a>
+    <a asp-page="Create" class="btn btn-primary" data-toggle="tooltip" data-placement="top" accesskey="n" title="[ALT]+N">Create New</a>
 </p>
-<table class="table">
+<table class="table table-striped table-bordered" id="MainGrid">
     <thead>
         <tr>
             <th>
@@ -20,71 +44,36 @@
                 @Html.DisplayNameFor(model => model.Party[0].Name)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Party[0].Address)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Party[0].IsEmployee)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Party[0].IsUser)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Party[0].IsSupplier)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Party[0].IsCustomer)
-            </th>
-            <th>
                 @Html.DisplayNameFor(model => model.Party[0].ContactNo)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Party[0].ContactPerson)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Party[0].Email)
-            </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.Party) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Code)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Address)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IsEmployee)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IsUser)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IsSupplier)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IsCustomer)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ContactNo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ContactPerson)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Email)
-            </td>
-            <td>
-                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model.Party)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Code)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ContactNo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ContactPerson)
+                </td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

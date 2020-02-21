@@ -1,0 +1,81 @@
+﻿@page
+@model Rental.Pages.Properties.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Property</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Property.Id" />
+            <div class="form-group">
+                <label asp-for="Property.Name" class="control-label"></label>
+                <input asp-for="Property.Name" class="form-control" />
+                <span asp-validation-for="Property.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Property.Address" class="control-label"></label>
+                <input asp-for="Property.Address" class="form-control" />
+                <span asp-validation-for="Property.Address" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Property.City" class="control-label"></label>
+                <input asp-for="Property.City" class="form-control" />
+                <span asp-validation-for="Property.City" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Property.CountryId" class="control-label"></label>
+                <select asp-for="Property.CountryId" class="form-control" asp-items="ViewBag.CountryId">
+                    <option value="">--Select--</option>
+                </select>
+                <span asp-validation-for="Property.CountryId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Property.Pin" class="control-label"></label>
+                <input asp-for="Property.Pin" class="form-control" />
+                <span asp-validation-for="Property.Pin" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Property.PartyId" class="control-label"></label>
+                <select asp-for="Property.PartyId" class="form-control" asp-items="ViewBag.PartyId">
+                    <option value="">--Select--</option>
+                </select>
+                <span asp-validation-for="Property.PartyId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Property.PropertyTypeId" class="control-label"></label>
+                <select asp-for="Property.PropertyTypeId" class="form-control" asp-items="ViewBag.PropertyTypeId">
+                    <option value="">--Select--</option>
+                </select>
+                <span asp-validation-for="Property.PropertyTypeId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Property.Lattitude" class="control-label"></label>
+                <input asp-for="Property.Lattitude" class="form-control" />
+                <span asp-validation-for="Property.Lattitude" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Property.Longitude" class="control-label"></label>
+                <input asp-for="Property.Longitude" class="form-control" />
+                <span asp-validation-for="Property.Longitude" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

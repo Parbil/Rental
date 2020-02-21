@@ -8,6 +8,10 @@
   <ItemGroup>
     <Compile Remove="Data\Migrations\20200221101714_PropertyType.cs" />
     <Compile Remove="Data\Migrations\20200221101714_PropertyType.Designer.cs" />
+    <Compile Remove="Data\Migrations\20200221181003_PropertyLattitude.cs" />
+    <Compile Remove="Data\Migrations\20200221181003_PropertyLattitude.Designer.cs" />
+    <Compile Remove="Data\Migrations\20200221181226_PropertyLattitude.cs" />
+    <Compile Remove="Data\Migrations\20200221181226_PropertyLattitude.Designer.cs" />
   </ItemGroup>
 
 
