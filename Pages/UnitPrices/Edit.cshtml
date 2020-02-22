@@ -1,0 +1,53 @@
+﻿@page
+@model Rental.Pages.UnitPrices.EditModel
+@using Rental.Models
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Modify</h1>
+
+<h4>UnitPrice</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="UnitPrice.Id" />
+            <div class="form-group">
+                <label asp-for="UnitPrice.Period" class="control-label"></label>
+                <input asp-for="UnitPrice.Period" class="form-control" />
+                <span asp-validation-for="UnitPrice.Period" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UnitPrice.Periodicity" class="control-label"></label>
+                <select asp-for="UnitPrice.Periodicity" class="form-control" asp-items="Html.GetEnumSelectList<PERIODICITY>()">
+                </select>
+                <span asp-validation-for="UnitPrice.Periodicity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UnitPrice.Price" class="control-label"></label>
+                <input asp-for="UnitPrice.Price" class="form-control" />
+                <span asp-validation-for="UnitPrice.Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UnitPrice.UnitId" class="control-label"></label>
+                <select asp-for="UnitPrice.UnitId" class="form-control" asp-items="ViewBag.UnitId">
+                    <option value="">--Select--</option>
+                </select>
+                <span asp-validation-for="UnitPrice.UnitId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index" asp-route-UnitId=@Model.UnitPrice.UnitId>Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

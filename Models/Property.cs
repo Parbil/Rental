@@ -39,5 +39,7 @@ namespace Rental.Models
         [DisplayFormat(DataFormatString = "{0:##0.#########}", ApplyFormatInEditMode = true)]
         [RegularExpression(@"^\d{0,3}.?\d{0,9}$", ErrorMessage = "Invalid Value; Maximum Nine Decimal Points.")]
         public Decimal? Longitude { get; set; }
+
+        public string ImagePath { get; set; }
     }
 }

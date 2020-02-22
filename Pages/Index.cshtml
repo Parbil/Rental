@@ -4,7 +4,34 @@
     ViewData["Title"] = "Home page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+    <div class="text-center">
+        <h1 class="display-4">Welcome</h1>
+
+        <div class="col-md-12">
+            <ul class="filter-items">
+                <li class="btn btn-primary">
+                    <a>All</a>
+                </li>
+                @foreach (var propertyType in Model.PropertyTypes)
+                {
+
+                    <li class="btn btn-primary">
+                        <a>@propertyType.TypeName</a>
+                    </li>
+
+                }
+            </ul>
+            </div>
+        <div class="card-deck">
+            @foreach (var property in Model.Properties)
+            {
+                var ImagePath = "~/Images/" + (property.ImagePath ?? "noimage.jpg");
+                <div class="card m-3" style="min-width: 18rem; max-width:30.5%;">
+                    <div class="card-header">
+                        @property.Name
+                        <img class="card-img-top imageThumbnail" src="@ImagePath" asp-append-version="true" />
+                    </div>
+                </div>
+            }
+        </div>
+    </div>

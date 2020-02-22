@@ -12,6 +12,7 @@ using Rental.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Rental.Services;
 
 namespace Rental
 {
@@ -37,6 +38,8 @@ namespace Rental
                 {
                     options.Conventions.AuthorizeFolder("/PropertyTypes");
                 });
+
+           // services.AddScoped<IPropertyTypeRepository, PropertyTypeRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

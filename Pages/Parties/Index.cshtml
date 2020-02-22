@@ -29,7 +29,7 @@
         })
     </script>
 }
-<h1>Index</h1>
+<h1>Parties</h1>
 
 <p>
     <a asp-page="Create" class="btn btn-primary" data-toggle="tooltip" data-placement="top" accesskey="n" title="[ALT]+N">Create New</a>
@@ -69,7 +69,7 @@
                     @Html.DisplayFor(modelItem => item.ContactPerson)
                 </td>
                 <td>
-                    <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-page="./Edit" asp-route-id="@item.Id">Modify</a> |
                     <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
                     <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
                 </td>

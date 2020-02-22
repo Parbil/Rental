@@ -19,6 +19,7 @@ namespace Rental.Data
         public DbSet<Property> Properties { get; set; }
         public DbSet<UnitType> UnitTypes { get; set; }
         public DbSet<Unit> Units { get; set; }
+        public DbSet<UnitPrice> UnitPrices { get; set; }
     }
 
 }
