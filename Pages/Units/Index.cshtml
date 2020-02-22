@@ -1,0 +1,80 @@
+﻿@page
+@model Rental.Pages.Units.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+@section Styles {
+    <!-- DataTables -->
+    <link rel="stylesheet" href="~/lib/dataTables/dataTables.bootstrap4.min.css">
+}
+
+@section Scripts {
+    <!-- DataTables -->
+    <script src="~/lib/dataTables/jquery.dataTables.min.js"></script>
+    <script src="~/lib/dataTables/dataTables.bootstrap4.min.js"></script>
+
+    <!-- page script -->
+    <script>
+        $(function () {
+            $('#MainGrid').DataTable({
+                'paging': true,
+                'lengthChange': true,
+                'searching': true,
+                'ordering': true,
+                'info': true,
+                'autoWidth': true
+            })
+        })
+    </script>
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table table-striped table-bordered" id="MainGrid">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Unit[0].Code)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Unit[0].Property)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Unit[0].UnitType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Unit[0].Party)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Unit)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Code)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Property.Address)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UnitType.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Party.Address)
+                </td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

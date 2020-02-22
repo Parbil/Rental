@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Rental.Data;
 
 namespace Rental.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200222134437_UnitTypes")]
+    partial class UnitTypes
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -343,37 +345,6 @@ namespace Rental.Data.Migrations
                     b.ToTable("PropertyTypes");
                 });
 
-            modelBuilder.Entity("Rental.Models.Unit", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Code")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("PartyId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("PropertyId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("UnitTypeId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("PartyId");
-
-                    b.HasIndex("PropertyId");
-
-                    b.HasIndex("UnitTypeId");
-
-                    b.ToTable("Units");
-                });
-
             modelBuilder.Entity("Rental.Models.UnitType", b =>
                 {
                     b.Property<int>("Id")
@@ -458,27 +429,6 @@ namespace Rental.Data.Migrations
                     b.HasOne("Rental.Models.PropertyType", "propertyType")
                         .WithMany()
                         .HasForeignKey("PropertyTypeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("Rental.Models.Unit", b =>
-                {
-                    b.HasOne("Rental.Models.Party", "Party")
-                        .WithMany()
-                        .HasForeignKey("PartyId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Rental.Models.Property", "Property")
-                        .WithMany()
-                        .HasForeignKey("PropertyId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Rental.Models.UnitType", "UnitType")
-                        .WithMany()
-                        .HasForeignKey("UnitTypeId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

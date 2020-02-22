@@ -17,6 +17,8 @@ namespace Rental.Data
         public DbSet<Party> Parties { get; set; }
         public DbSet<Country> Countries { get; set; }
         public DbSet<Property> Properties { get; set; }
+        public DbSet<UnitType> UnitTypes { get; set; }
+        public DbSet<Unit> Units { get; set; }
     }
 
 }
