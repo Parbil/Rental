@@ -10,7 +10,7 @@ namespace Rental.Models
     {
         public int Id { get; set; }
         [Display(Name = "Code")]
-        public int Code { get; set; }
+        public string Code { get; set; }
         [Display(Name = "Name")]
         [Required]
         public string Name { get; set; }
