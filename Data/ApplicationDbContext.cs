@@ -20,6 +20,6 @@ namespace Rental.Data
         public DbSet<UnitType> UnitTypes { get; set; }
         public DbSet<Unit> Units { get; set; }
         public DbSet<UnitPrice> UnitPrices { get; set; }
+        public DbSet<Tenancy> Tenancy { get; set; }
     }
-
 }

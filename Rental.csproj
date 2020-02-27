@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
@@ -16,6 +16,8 @@
     <Compile Remove="Data\Migrations\20200222142922_Unit.Designer.cs" />
     <Compile Remove="Data\Migrations\20200222182102_Periodicity_UnitPrice.cs" />
     <Compile Remove="Data\Migrations\20200222182102_Periodicity_UnitPrice.Designer.cs" />
+    <Compile Remove="Data\Migrations\20200226140825_Tenancy.cs" />
+    <Compile Remove="Data\Migrations\20200226140825_Tenancy.Designer.cs" />
   </ItemGroup>
 
 
